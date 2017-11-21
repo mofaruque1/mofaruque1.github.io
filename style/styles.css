@@ -372,9 +372,9 @@ ul.position-skillset{
         margin-top: 45%;
     }
 
-    div.menu-hide{
+   /* div.menu-hide{
         display: none;
-    }
+    }*/
 }
 
 @media (min-height: 800px){
