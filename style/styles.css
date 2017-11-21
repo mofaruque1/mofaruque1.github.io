@@ -203,7 +203,7 @@ a{
      
     width: 92%;
     position: absolute;
-    height: 100vh;
+    /*height: 100vh;*/
     top: 0px;
     right: 0px;
     margin-right:0; 
@@ -233,12 +233,22 @@ a{
     background: rgb(32, 57, 73);
     padding-left:30px; 
 }    
- 
+
+@media (max-height: 700px){
+    div.box-scrollable{
+        overflow: scroll;
+        width: 100%;
+    }
+}
+
+
  
 .abt_box2{
     width: 55%;
     height: 100vh;
     float: right;
+    justify-content: center;
+    align-items: center;
 }
 
 div p{
@@ -318,51 +328,6 @@ div h1,h2{
     margin-top: 5px;
   }
 
-  /*
-.progress1{
-    position: relative;
-    animation: mymove2 3.5s infinite ease-in-out;
-    margin: 3px;
-}
-.progress2{
-    margin: 3px;
-    position: relative;
-    animation: mymove2 3.2s infinite ease-in-out;
-}
-.progress3{
-    margin: 3px;
-    position: relative;
-    animation: mymove2 3.4s infinite ease-in-out;
-}
-.progress4{
-    margin: 3px;
-    position: relative;
-    animation: mymove2 3.5s infinite ease-in-out;
-}
-.progress5{
-    margin: 3px;
-    position: relative;
-    animation: mymove2 3.2s infinite ease-in-out;
-}
-.progress6{
-    margin: 3px;
-    position: relative;
-    animation: mymove2 3.4s infinite ease-in-out;
-}
-
-@keyframes mymove2 {
-    0% {left: 0px;}
-    50%{left: 140px;}
-    100%{left: 0px;}
-}
-
-*/
-
-
-
-
-
-
 .font-style{
     font-size:0.8em;
     font-family:Courier New, Courier, monospace;
@@ -374,35 +339,120 @@ ul.position-skillset{
 }
 
 
-.progress1:hover, .progress2:hover, .progress3:hover, .progress4:hover, .progress5:hover, .progress6:hover{
-    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
-    transform: translate3d(0, 0, 0);
-    backface-visibility: hidden;
-    perspective: 1000px;
+.skills-img{
+    position: relative;
+    margin-top: 35%;
+    left: 20%;
+  }
+
+
+  /*Code for spining*/
+  ul.spin{
+    margin-top: 20%;
+    list-style: none;
+    font-size: 1.5vw;
+    transform-style: preserve-3d;
+    animation: three-dimensions-circle 30s linear infinite;
+  }
+
+  .spin li{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: black;
+  }
+
+  @media (max-width: 1000px){
+    .hide-spin{
+        /*display: none;*/
+        font-size: 0.1vw;
+    }
+
+    .img-top{
+        margin-top: 45%;
+    }
+
+    div.menu-hide{
+        display: none;
+    }
 }
 
-@keyframes shake {
-    10%, 90% {
-      transform: translate3d(-1px, 0, 0);
+@media (min-height: 800px){
+   ul.margin-spin{
+        margin-top: 40%;
     }
-    
-    20%, 80% {
-      transform: translate3d(2px, 0, 0);
+    .margin-image{
+        margin-top: 65%;
     }
-  
-    30%, 50%, 70% {
-      transform: translate3d(-4px, 0, 0);
-    }
-  
-    40%, 60% {
-      transform: translate3d(4px, 0, 0);
-    }
-  }
+}
 
 
-  .skills-img{
-    position: relative;
-    top:30%;
-    left: 15%;
-    
-  }
+
+
+
+.spin li:nth-child(1){
+    transform: translate(-50%,50%) rotate(0deg) translateY(-260px) rotateX(90deg);
+}
+.spin li:nth-child(2){
+  transform: translate(-50%,50%) rotate(22.5deg) translateY(-260px) rotateX(90deg);
+}
+.spin li:nth-child(3){
+  transform: translate(-50%,50%) rotate(45deg) translateY(-260px) rotateX(90deg);
+}
+.spin li:nth-child(4){
+  transform: translate(-50%,50%) rotate(67.5deg) translateY(-260px) rotateX(90deg);
+}
+.spin li:nth-child(5){
+  transform: translate(-50%,50%) rotate(90deg) translateY(-260px) rotateX(90deg);
+}
+.spin li:nth-child(6){
+  transform: translate(-50%,50%) rotate(112.5deg) translateY(-260px) rotateX(90deg);
+}
+.spin li:nth-child(7){
+  transform: translate(-50%,50%) rotate(135deg) translateY(-260px) rotateX(90deg);
+}
+.spin li:nth-child(8){
+  transform: translate(-50%,50%) rotate(157.5deg) translateY(-260px) rotateX(90deg);
+}
+.spin li:nth-child(9){
+  transform: translate(-50%,50%) rotate(180deg) translateY(-260px) rotateX(90deg);
+}
+.spin li:nth-child(10){
+  transform: translate(-50%,50%) rotate(202.5deg) translateY(-260px) rotateX(90deg);
+}
+.spin li:nth-child(11){
+  transform: translate(-50%,50%) rotate(225deg) translateY(-260px) rotateX(90deg);
+}
+.spin li:nth-child(12){
+  transform: translate(-50%,50%) rotate(247.5deg) translateY(-260px) rotateX(90deg);
+}
+
+.spin li:nth-child(13){
+  transform: translate(-50%,50%) rotate(270deg) translateY(-260px) rotateX(90deg);
+}
+.spin li:nth-child(14){
+  transform: translate(-50%,50%) rotate(292.5deg) translateY(-260px) rotateX(90deg);
+}
+.spin li:nth-child(15){
+  transform: translate(-50%,50%) rotate(315deg) translateY(-260px) rotateX(90deg);
+}
+.spin li:nth-child(16){
+  transform: translate(-50%,50%) rotate(337.5deg) translateY(-260px) rotateX(90deg);
+}
+
+
+
+/*
+ * rotate(50deg) means rotate that element 50 deg on its place
+ * rotatex(50deg) means rotate that element in the x rotational axis.element should rotate
+ * around x axis
+ */
+  
+@keyframes three-dimensions-circle {
+    0%{
+        transform: rotateX(-100deg) rotate(0);
+    }
+    100%{
+        transform: rotateX(-100deg) rotate(-360deg);
+    }  
+}
