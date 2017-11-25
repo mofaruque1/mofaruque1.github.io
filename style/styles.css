@@ -237,7 +237,7 @@ a{
 @media (max-height: 700px){
     div.box-scrollable{
         overflow: scroll;
-        width: 100%;
+
     }
 }
 
