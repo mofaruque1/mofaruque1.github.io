@@ -206,9 +206,11 @@ a{
 /********About me css ************/
 
 .aboutme-rightbox{
-    margin-left: 102px;
+    margin-left: 110px;
+    position: fixed;
     top: 0;
     left: 0;
+    width: 100%;
 }
 
 
@@ -237,11 +239,9 @@ a{
 
  
 .abt_box2{
+    display: inline-block;
     width: 50%;
-    top:50%;
-    float: right;
-    justify-content: center;
-    align-items: center;
+    position: absolute;
 }
 
 div p{
