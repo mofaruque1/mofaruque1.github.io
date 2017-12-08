@@ -1,22 +1,29 @@
+body,html{
+    height: 100%;
+    margin: 0;
+}
 
 .leftbox{
     background-color: black;
-    width: 8%;
+    width: 110px;
     position: fixed;
-    height: 100vh;
-    top: 0px;
-    left: 0px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    overflow: hidden;
 }
 
 .rightbox{
     background:url('100.jpeg');
     /*background-color:rgb(14, 141, 158);*/ 
     background-size: cover;
-    width: 92%;
-    position: fixed;
+    width: 100%;
+    position: absolute;
     height: 100%;
-    top: 0px;
-    right: 0px;
+    top: 0;
+    left: 0;
+    margin-left: 110px;
 
 }
 
@@ -199,39 +206,25 @@ a{
 /********About me css ************/
 
 .aboutme-rightbox{
-   /* background: url('100.jpg');*/
-     
-    width: 92%;
-    position: absolute;
-    /*height: 100vh;*/
-    top: 0px;
-    right: 0px;
-    margin-right:0; 
-    overflow: hidden;
+    margin-left: 102px;
+    top: 0;
+    left: 0;
 }
 
-
-.abt_box{
-    width: 100%;
-    position: relative;
-    height: 100vh;
-    top: 0px;
-    right: 0px;
-}
 
 .abt_box1{
-    width: 40%;
+    width: 510px;
     position: relative;
     display: inline-block;
     height: 100vh;
-    top: 0px;
-    right: 0px;
+    top: 0;
     
     /*border: 1px solid silver;
     background-color: rgb(19, 124, 54);
     opacity: 0.7; */
     background: rgb(32, 57, 73);
-    padding-left:30px; 
+    padding-left:30px;
+    overflow: auto; 
 }    
 
 @media (max-height: 700px){
@@ -244,7 +237,7 @@ a{
 
  
 .abt_box2{
-    width: 55%;
+    width: 50%;
     height: 100vh;
     float: right;
     justify-content: center;
@@ -455,4 +448,27 @@ ul.position-skillset{
     100%{
         transform: rotateX(-100deg) rotate(-360deg);
     }  
+}
+
+
+
+/*********latest work page styles************/
+
+.lw-rightbox{
+    margin-left: 110px;
+}
+
+.lw-header{
+    color:black;
+    text-align: center;
+}
+.lw-post1{
+    display: inline-block;
+    margin: 30px;
+    width: 200px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+}
+
+.lw-rightbox p{
+    color: black;
 }
