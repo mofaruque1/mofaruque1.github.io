@@ -213,7 +213,7 @@ a{
 
 
 .abt_box1{
-    width: 480px;
+    width: 35%;
     position: relative;
     display: inline-block;
     height: 100vh;
@@ -238,7 +238,7 @@ a{
  
 .abt_box2{
     width: 50%;
-    height: 100vh;
+    top:50%;
     float: right;
     justify-content: center;
     align-items: center;
