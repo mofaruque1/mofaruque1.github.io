@@ -16,12 +16,10 @@ body,html{
 }
 
 .active-page{
-    background: green;
+    color: green;
+    font-size: 15px; 
 }
 
-.menu-box:hover{
-  background: green;
-}
 
 
 .leftbox{
