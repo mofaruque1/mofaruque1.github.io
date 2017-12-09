@@ -21,6 +21,12 @@ h3{
     letter-spacing:2px;
 }
 
+.menu-footer{
+    position: absolute;
+    bottom: 0;
+    font-size: 12px;
+}
+
 .active-page{
     color: green;
     font-size: 14px; 
