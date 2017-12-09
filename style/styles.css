@@ -9,10 +9,20 @@ h3{
     letter-spacing: 5px;
     text-transform: uppercase;
 }
+h1.fancy{
+    font-size:36px;
+    letter-spacing:4px;
+    padding:2px;
+    font-family:Georgia, Courier, monospace;
+}
 .menu-box{
     position:relative;
     padding:15px;
     border-bottom:1px solid rgb(53, 52, 52);
+}
+
+.menu-box:hover a p{
+    letter-spacing: 4px;
 }
 .menu-p{
     text-align:center;
@@ -46,7 +56,7 @@ h3{
 }
 
 .rightbox{
-    background:url('100.jpeg');
+    background:url('8.jpg');
     width: 100vw;
     /*background-color:rgb(14, 141, 158);*/ 
     background-size: cover;
@@ -61,16 +71,30 @@ h3{
 
 .name_position{
     position: absolute;
-    top: 70%;
+    top: 58%;
     left: 30%;  
 }
 
 .name_style{
-    color:black;
-    margin-top:0px;
+    color:white;
     font-family: "Lucida Console", Monaco, monospace;
     text-align: center;
+
 }
+.name_position button {
+    position: absolute;
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 10px 25px;
+    color: black;
+    background-color: #ddd;
+    text-align: center;
+    cursor: pointer;
+    opacity: 0.4;
+    font-size: 15px;
+    left: 37%; 
+  }
 
 
 ul{
@@ -84,15 +108,6 @@ ul{
 .center{
     margin-bottom:40%;
     margin-left: 25%;
-}
-
-.layer{
-    background-color: rgba(192,192,192, 0.3);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
 }
 
 
@@ -117,8 +132,9 @@ a{
     width: 100%;
     height: 100%;
     margin: 0 auto;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid white;
     overflow: hidden;
+
 }
 
 @media (max-height: 700px){
@@ -162,7 +178,7 @@ a{
 }
 .ball:nth-child(5) {
     position: relative;
-    background: #2d3443;
+    background: #8aa5da;
     animation: mymove 1.1s infinite ease-in-out;
     -webkit-animation: mymove 1.1s infinite ease-in-out;
 }
@@ -174,27 +190,27 @@ a{
 }
 .ball:nth-child(7) {
     position: relative;
-    background: #4d407c;
+    background: #7e68d6;
     animation: mymove 1s infinite ease-in-out;
     -webkit-animation: mymove 1s infinite ease-in-out;
 }
 
 .ball:nth-child(8) {
     position: relative;
-    background: #7c0e37;
+    background: #c21758;
     animation: mymove 1.1s infinite ease-in-out;
     -webkit-animation: mymove 1.1s infinite ease-in-out;
 }
 
 .ball:nth-child(9) {
     position: relative;
-    background:  #1c5236;
+    background:  #349662;
     animation: mymove 1.05s infinite ease-in-out;
     -webkit-animation: mymove 1.05s infinite ease-in-out;
 }
 .ball:nth-child(10) {
     position: relative;
-    background: #074a53;
+    background: #097c8b;
     animation: mymove 1s infinite ease-in-out;
     -webkit-animation: mymove 1s infinite ease-in-out;
     
