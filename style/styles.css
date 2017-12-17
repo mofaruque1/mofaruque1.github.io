@@ -21,8 +21,9 @@ h1.fancy{
     border-bottom:1px solid rgb(53, 52, 52);
 }
 
-.menu-box:hover a p{
-    letter-spacing: 4px;
+
+.menu-box:hover{
+    background: rgb(1, 105, 1);
 }
 .menu-p{
     text-align:center;
