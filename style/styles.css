@@ -23,7 +23,7 @@ h1.fancy{
 
 
 .menu-box:hover{
-    background: rgb(1, 105, 1);
+    background: green;
 }
 .menu-p{
     text-align:center;
@@ -499,7 +499,7 @@ ul.position-skillset{
 /*********latest work page styles************/
 
 .lw-rightbox{
-    margin-left: 110px;
+    margin-left: 100px;
 }
 
 .lw-header{
