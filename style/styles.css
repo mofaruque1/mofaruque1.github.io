@@ -3,6 +3,12 @@ body,html{
     margin: 0;
 }
 
+
+
+
+
+
+
 h3{
     font: 20px "Lato", sans-serif;
     color: #111;
@@ -17,8 +23,9 @@ h1.fancy{
 }
 .menu-box{
     position:relative;
-    padding:15px;
+    padding:15px 0;
     border-bottom:1px solid rgb(53, 52, 52);
+   
 }
 
 
@@ -30,6 +37,8 @@ h1.fancy{
     padding:2px;
     font-size:12px;
     letter-spacing:2px;
+
+  
 }
 
 .menu-footer{
@@ -126,6 +135,7 @@ a{
     text-decoration: none;
     color: gray;
     outline: 0;
+    
 }
 
 /********Loading animation********/
@@ -539,10 +549,10 @@ ul.position-skillset{
 }
 .text{
 
-    color: black;
+    color: white;
     padding: 5px 8px;
     font-size: 15px;
-    border: 2px solid black;
+    border: 2px solid white;
     letter-spacing: 2px;
   
     
@@ -558,9 +568,24 @@ ul.position-skillset{
 }
 
 .text:hover{
-   background: rgb(78, 77, 77);
-   color: white;
-   border: 2px solid rgb(78, 77, 77);
+   background: white;
+   color: black;
+   
+}
+
+.c1{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    top:0;
+    left:0;
+    opacity: 0;
+    transition: 0.5s ease;
+}
+
+.lw-post:hover .c1{
+    opacity: 0.4;
 }
 
 
