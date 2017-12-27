@@ -135,7 +135,9 @@ a{
     
 }
 
-/********Loading animation********/
+
+
+
 .container{
 	position:relative;
     width: 100%;
@@ -600,3 +602,19 @@ ul.position-skillset{
     background-color: rgb(220, 56, 57);
 
 }
+
+
+
+
+/*********codes.html page styles************/
+
+.codes-rightbox{
+    margin-left: 100px;
+    height: 100vh;
+    top: -20px;
+    position: relative;
+    /*background-color: #efce15; */
+}
+
+
+
