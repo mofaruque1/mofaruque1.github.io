@@ -16,11 +16,26 @@ h3{
     text-transform: uppercase;
 }
 h1.fancy{
-    font-size:36px;
+    font-size:46px;
     letter-spacing:4px;
     padding:2px;
-    font-family:Georgia, Courier, monospace;
+    font-family: 'Lobster', serif;
 }
+
+.name_style{
+	position:relative;
+    color:white;
+    font-family:'Lobster', serif;
+	font-size:20px;
+	letter-spacing:3px;
+    text-align: center;
+	top:-20px;
+}
+
+
+
+
+
 .menu-box{
     position:relative;
     padding:15px 0;
@@ -85,12 +100,7 @@ h1.fancy{
     left: 30%;  
 }
 
-.name_style{
-    color:white;
-    font-family: "Lucida Console", Monaco, monospace;
-    text-align: center;
 
-}
 .name_position button {
     position: absolute;
     border: none;
@@ -140,11 +150,13 @@ a{
 
 /********Loading animation********/
 .container{
+	position:relative;
     width: 100%;
     height: 100%;
     margin: 0 auto;
     border-bottom: 1px solid white;
     overflow: hidden;
+	left:-20px;
 
 }
 
