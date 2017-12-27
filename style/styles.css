@@ -138,7 +138,7 @@ a{
 
 
 
-.container{
+.containerOne{
 	position:relative;
     width: 100%;
     height: 100%;
@@ -543,11 +543,7 @@ ul.position-skillset{
     transition: 0.5s ease;
 }
 
-.overlay{
-    opacity: 1;
-    transition: 0.5s ease;
 
-}
 .text{
 
     color: white;
@@ -564,9 +560,7 @@ ul.position-skillset{
    
     
 }
-.lw-post:hover .overlay{
-    opacity: 0.3;
-}
+
 
 .text:hover{
    background: white;
@@ -607,14 +601,104 @@ ul.position-skillset{
 
 
 /*********codes.html page styles************/
-
 .codes-rightbox{
     margin-left: 100px;
-    height: 100vh;
-    top: -20px;
     position: relative;
-    /*background-color: #efce15; */
 }
+
+.header-container{
+    position: relative;
+    background-image: url("../images/1.jpeg");
+    background-size: cover;
+    /* Set a specific height */
+    min-height: 40%;
+}
+.header-layer{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.7;
+}
+.header-middle{
+    position: absolute;
+    width: 60%;
+    top: 50%;
+    left: 55%;
+    color: white;
+    transform: translate(-50%,-50%);
+}
+
+
+.header-container2{
+    position: relative;
+    background-color: #f4d10e;
+    height: 160px;
+    overflow: hidden;
+}
+
+.header-text1{
+    font-family: 'Lobster',serif;
+    font-size: 22px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+.header-text2{
+    font-family: 'Bungee',serif;
+    font-size: 35px;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.header-text3{
+    font-family: 'Lobster',serif;
+    font-size: 25px;
+    letter-spacing: 2px;
+    text-align: center;
+    text-transform: capitalize;
+    color: black;
+}
+
+p.fancy1{
+    font-family:'Roboto Slab',serif;
+    color:black;
+    font-size: 32px;
+    text-align: center;
+    position: relative;
+    text-shadow: 4px 4px 4px #aaa;
+
+}
+
+
+.go-link{
+    text-align:center;
+    color:black;
+    border: 1px solid #0e2344;
+    height: 40px;
+    padding: 10px;
+    letter-spacing: 1px;
+    font-family: Merriweather;
+}
+.go-link:hover{
+    background-color: #0e2344;
+    color: white;
+}
+
+#code-footer{
+    text-align:center;
+    color:white;
+    background-color:#0e2344;
+
+}
+
+
+
+
+
+
+
+
 
 
 
