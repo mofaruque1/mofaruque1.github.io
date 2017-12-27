@@ -42,6 +42,9 @@ window.onload = myfunction;
 function myfunction1(x){
     var src = document.getElementsByClassName("option");
     var dst = document.getElementById("page-title");
+    if(x===3){
+        location.reload();
+    }
     dst.innerHTML = src[x].innerHTML;
 }
 
