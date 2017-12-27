@@ -45,7 +45,9 @@ function myfunction1(x){
     if(x===3){
         location.reload();
     }
+    else{
     dst.innerHTML = src[x].innerHTML;
+    }
 }
 
 function date_update(){
