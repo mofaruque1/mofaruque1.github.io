@@ -1,0 +1,110 @@
+body,html{
+    height: 100%;
+    margin: 0;
+}
+
+
+
+
+  /*Code for spining*/
+  ul.spin{
+    margin-top: 20%;
+    list-style: none;
+    font-size: 1.5vw;
+    transform-style: preserve-3d;
+    animation: three-dimensions-circle 30s linear infinite;
+  }
+
+  .spin li{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: black;
+  }
+
+
+
+
+.spin li:nth-child(1){
+    transform: translate(-50%,50%) rotate(0deg) translateY(-260px) rotateX(90deg);
+}
+.spin li:nth-child(2){
+  transform: translate(-50%,50%) rotate(22.5deg) translateY(-260px) rotateX(90deg);
+}
+.spin li:nth-child(3){
+  transform: translate(-50%,50%) rotate(45deg) translateY(-260px) rotateX(90deg);
+}
+.spin li:nth-child(4){
+  transform: translate(-50%,50%) rotate(67.5deg) translateY(-260px) rotateX(90deg);
+}
+.spin li:nth-child(5){
+  transform: translate(-50%,50%) rotate(90deg) translateY(-260px) rotateX(90deg);
+}
+.spin li:nth-child(6){
+  transform: translate(-50%,50%) rotate(112.5deg) translateY(-260px) rotateX(90deg);
+}
+.spin li:nth-child(7){
+  transform: translate(-50%,50%) rotate(135deg) translateY(-260px) rotateX(90deg);
+}
+.spin li:nth-child(8){
+  transform: translate(-50%,50%) rotate(157.5deg) translateY(-260px) rotateX(90deg);
+}
+.spin li:nth-child(9){
+  transform: translate(-50%,50%) rotate(180deg) translateY(-260px) rotateX(90deg);
+}
+.spin li:nth-child(10){
+  transform: translate(-50%,50%) rotate(202.5deg) translateY(-260px) rotateX(90deg);
+}
+.spin li:nth-child(11){
+  transform: translate(-50%,50%) rotate(225deg) translateY(-260px) rotateX(90deg);
+}
+.spin li:nth-child(12){
+  transform: translate(-50%,50%) rotate(247.5deg) translateY(-260px) rotateX(90deg);
+}
+
+.spin li:nth-child(13){
+  transform: translate(-50%,50%) rotate(270deg) translateY(-260px) rotateX(90deg);
+}
+.spin li:nth-child(14){
+  transform: translate(-50%,50%) rotate(292.5deg) translateY(-260px) rotateX(90deg);
+}
+.spin li:nth-child(15){
+  transform: translate(-50%,50%) rotate(315deg) translateY(-260px) rotateX(90deg);
+}
+.spin li:nth-child(16){
+  transform: translate(-50%,50%) rotate(337.5deg) translateY(-260px) rotateX(90deg);
+}
+
+
+
+/*
+ * rotate(50deg) means rotate that element 50 deg on its place
+ * rotatex(50deg) means rotate that element in the x rotational axis.element should rotate
+ * around x axis
+ */
+  
+@keyframes three-dimensions-circle {
+    0%{
+        transform: rotateX(-100deg) rotate(0);
+    }
+    100%{
+        transform: rotateX(-100deg) rotate(-360deg);
+    }  
+}
+
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    background: #0d2142;
+    width: 100%;
+    color: white;
+}
+
+
+
+
+
+
+
+

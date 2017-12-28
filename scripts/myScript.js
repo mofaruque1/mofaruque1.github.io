@@ -1,5 +1,10 @@
 
 
+
+
+
+
+
 function dateUpdate(){
   var x = document.getElementById("date");
   var d = new Date();
@@ -8,6 +13,7 @@ function dateUpdate(){
 
 function run_all_function(){
     dateUpdate();
+    console.log(document.readyState);
 }
 
 

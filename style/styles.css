@@ -666,7 +666,6 @@ p.fancy1{
     font-size: 32px;
     text-align: center;
     position: relative;
-    text-shadow: 4px 4px 4px #aaa;
 
 }
 
@@ -679,8 +678,9 @@ p.fancy1{
     padding: 10px;
     letter-spacing: 1px;
     font-family: Merriweather;
+    transition: 0.5s ease;
 }
-.go-link:hover{
+.thumbnail a:hover .go-link{
     background-color: #0e2344;
     color: white;
 }
