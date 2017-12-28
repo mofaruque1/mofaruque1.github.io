@@ -14,7 +14,8 @@ body,html{
 /*Code for spining*/
 ul.spin{
  
-  margin-top: 20%;
+  margin-top: 40%;
+  
   list-style: none;
   font-size: 30px;
   transform-style: preserve-3d;
@@ -30,6 +31,14 @@ ul.spin{
 
 }
 
+.abt_box2{
+	
+    display: inline-block;
+    width: 50%;
+    position: absolute;
+	height:100%;
+	margin-left: 25%;
+}
 
 
 
@@ -113,11 +122,12 @@ transform: translate(-50%,50%) rotate(337.5deg) translateY(-260px) rotateX(90deg
 
 .spin-text{
   position: absolute;
-  top: 60%;
+  bottom:20%;
   left: 40%;
   color: #0d2142;
   font-family: 'Bungee Shade',serif;
   font-size: 55px;
+  letter-spacing:1px;
   
 }
 
