@@ -1,12 +1,9 @@
+
+
 body,html{
     height: 100%;
     margin: 0;
 }
-
-
-
-
-
 
 
 h3{
@@ -262,10 +259,7 @@ a{
 
 .aboutme-rightbox{
     margin-left: 100px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+    position: relative;
 }
 
 
@@ -290,6 +284,31 @@ a{
 
     }
 }
+
+.abt-p{
+    color:#0e2344;
+    text-align: center;
+    font-size: 40px;
+    padding: 20px;
+    font-family: 'Lobster',serif;
+    letter-spacing: 1px;
+}
+
+.abt-p1{
+    color:black;
+    text-align: center;
+    font-size: 17px;
+    font-family: 'Roboto Slab',serif;
+    letter-spacing: 1px;
+    padding: 0  20px;
+}
+
+
+/*--image tiles--*/
+div.row .col-md-4{
+    padding: 0px;
+}
+
 
 
  
@@ -613,6 +632,15 @@ ul.position-skillset{
     /* Set a specific height */
     min-height: 40%;
 }
+.header-container1{
+    position: relative;
+    background-image: url("../images/abtmePage/me.jpg");
+    background-size: cover;
+    /* Set a specific height */
+    height:70%;
+}
+
+
 .header-layer{
     position: absolute;
     width: 100%;
@@ -659,6 +687,22 @@ ul.position-skillset{
     text-transform: capitalize;
     color: black;
 }
+.header-text4{
+    font-family: 'Patua One',serif;
+    font-size: 35px;
+    letter-spacing: 1px;
+    text-align: center;
+    color: rgb(19, 18, 18);
+}
+
+.header-text5{
+    font-family: 'Patua One',serif;
+    font-size: 22px;
+    letter-spacing: 1px;
+    text-align: center;
+    color: rgb(19, 18, 18);
+    
+}
 
 p.fancy1{
     font-family:'Roboto Slab',serif;
@@ -689,16 +733,6 @@ p.fancy1{
     text-align:center;
     color:white;
     background-color:#0e2344;
+    padding: 30px;
 
 }
-
-
-
-
-
-
-
-
-
-
-
