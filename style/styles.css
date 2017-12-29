@@ -785,7 +785,7 @@ p.fancy1{
 /* Contact page styles */
 .contact-header-img{
     position: absolute;
-    background-image: url("../images/contactHeader2.JPG");
+    background-image: url("../images/contactHeader2.jpg");
     background-size: cover;
     background-position: center;
     top:0;
