@@ -665,15 +665,43 @@ ul.position-skillset{
 
 .resume-rightbox{
     margin-left: 100px;
-    height: 100vh;
-    top: -20px;
     position: relative;
-    /*background-color: #efce15; */
-    background-color: rgb(220, 56, 57);
 
+}
+.rs-header-img{
+    position: absolute;
+    background-image: url("../images/resume2.jpg");
+    background-size: cover;
+    background-position: center;
+    top:0;
+	left:0;
+	height:100%;
+    width:100%;
+    opacity: 0;
 }
 
 
+.rs-text-1{
+    font-family:'Bree Serif';
+    font-size:16px;
+    color :black;
+    padding-left: 40px;
+    margin-left: 20px;
+}
+
+.rs-text-2{
+    font-family:'Roboto Slab';
+    font-size:16px;
+    color :black;
+    padding-left: 60px;
+    letter-spacing: 1px;
+    margin-left: 20px;
+}
+
+.rs-text-3{
+    font-size:14px;
+    word-spacing: 1px;
+}
 
 
 /*********codes.html page styles************/
@@ -827,7 +855,7 @@ p.fancy1{
     opacity: 1;
 }
 
-.contact-header-outer, .lw-header-outer{
+.contact-header-outer, .lw-header-outer, .rs-header-outer{
     position: relative;
     height:67%;
     background-color:rgb(69, 22, 78);
