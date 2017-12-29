@@ -1,4 +1,6 @@
 
+/* Google font */
+@import url('https://fonts.googleapis.com/css?family=Lobster|Bungee|Bungee Inline|Roboto Slab|Patua One|Faster One');
 
 body,html{
     height: 100%;
@@ -257,7 +259,7 @@ a{
 
 /********About me css ************/
 
-.aboutme-rightbox{
+.aboutme-rightbox, .contact-rightbox{
     margin-left: 100px;
     position: relative;
 }
@@ -304,6 +306,42 @@ a{
 }
 
 
+
+.about-header-outer{
+    position: relative;
+    height:67%;
+    background-color:rgb(69, 22, 78);
+    margin-left: 100px;
+}
+
+.about-header-img{
+    position: absolute;
+    background-image: url("../images/omor.JPG");
+    background-size: cover;
+    background-position: center;
+    top:0;
+	left:0;
+	height:100%;
+	width:100%;
+  
+    opacity: 0;
+
+}
+
+.about-header-center{
+    position: absolute;
+	 top:50%;
+     left:50%;
+     transform: translate(-50%,-50%);
+}
+
+
+.about-header-outer-2{
+    position: relative;
+    height:35%;
+    background-color:#d30e56;
+    margin-left: 100px;
+}
 /*--image tiles--*/
 div.row .col-md-4{
     padding: 0px;
@@ -630,7 +668,8 @@ ul.position-skillset{
     background-image: url("../images/1.jpeg");
     background-size: cover;
     /* Set a specific height */
-    min-height: 40%;
+    min-height: 60%;
+    margin-left: 100px;
 }
 .header-container1{
     position: relative;
@@ -638,7 +677,11 @@ ul.position-skillset{
     background-size: cover;
     /* Set a specific height */
     height:70%;
+    margin-left: 100px;
+
 }
+
+
 
 
 .header-layer{
@@ -646,13 +689,13 @@ ul.position-skillset{
     width: 100%;
     height: 100%;
     background-color: black;
-    opacity: 0.7;
+    opacity: 0.6;
 }
 .header-middle{
     position: absolute;
     width: 60%;
     top: 50%;
-    left: 55%;
+    left: 50%;
     color: white;
     transform: translate(-50%,-50%);
 }
@@ -663,6 +706,7 @@ ul.position-skillset{
     background-color: #f4d10e;
     height: 160px;
     overflow: hidden;
+    margin-left: 100px;
 }
 
 .header-text1{
@@ -736,3 +780,54 @@ p.fancy1{
     padding: 30px;
 
 }
+
+
+/* Contact page styles */
+.contact-header-img{
+    position: absolute;
+    background-image: url("../images/contactHeader2.JPG");
+    background-size: cover;
+    background-position: center;
+    top:0;
+	left:0;
+	height:100%;
+	width:100%;
+  
+    opacity: 0;
+
+}
+
+.contact-header-outer{
+    position: relative;
+    height:67%;
+    background-color:rgb(69, 22, 78);
+    margin-left: 100px;
+}
+
+.contact-header-center{
+    position: absolute;
+	 top:50%;
+     left:50%;
+     transform: translate(-50%,-50%);
+}
+
+
+.contact-header-text1, .contact-header-text2{
+    color:white;
+    text-align: center;
+    letter-spacing: 1px;	
+}
+
+
+.contact-header-text1{
+     
+    font-family:'Lobster',serif;
+    font-size:20px;
+    
+}
+.contact-header-text2{	 
+    font-family:'Bungee',serif;
+    font-size:50px;
+
+}
+
