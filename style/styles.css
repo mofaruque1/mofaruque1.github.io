@@ -1,6 +1,6 @@
 
 /* Google font */
-@import url('https://fonts.googleapis.com/css?family=Lobster|Bungee|Bungee Inline|Roboto Slab|Patua One|Faster One');
+@import url('https://fonts.googleapis.com/css?family=Lobster|Bungee|Bungee Inline|Roboto Slab|Patua One|Faster One|Bree Serif');
 
 body,html{
     height: 100%;
@@ -589,6 +589,13 @@ ul.position-skillset{
 }
 
 
+.fancytext-2{
+    font-family:'Bree Serif';
+    font-size:20px;
+    border-bottom:1px solid black;
+}
+
+
 .middle{
     position: absolute;
     top: 50%;
@@ -604,12 +611,11 @@ ul.position-skillset{
 .text{
 
     color: white;
-    padding: 5px 8px;
-    font-size: 15px;
-    border: 2px solid white;
-    letter-spacing: 2px;
-  
-    
+    padding: 8px 10px;
+    font-size: 10px;
+    border: 1px solid white;
+    font-family: 'Roboto Slab', serif;
+    letter-spacing: 1px;
 }
 
 .lw-post:hover .middle{
@@ -641,6 +647,19 @@ ul.position-skillset{
 }
 
 
+.lw-header-img{
+    position: absolute;
+    background-image: url("../images/6.jpg");
+    background-size: cover;
+    background-position: center;
+    top:0;
+	left:0;
+	height:100%;
+	width:100%;
+    opacity: 0;
+
+}
+
 
 /*********Resume page styles************/
 
@@ -658,7 +677,7 @@ ul.position-skillset{
 
 
 /*********codes.html page styles************/
-.codes-rightbox{
+.codes-rightbox, .lw-rightbox{
     margin-left: 100px;
     position: relative;
 }
@@ -749,13 +768,14 @@ ul.position-skillset{
 }
 
 p.fancy1{
-    font-family:'Roboto Slab',serif;
+    font-family:'Bree Serif',serif;
     color:black;
     font-size: 32px;
     text-align: center;
     position: relative;
 
 }
+
 
 
 .go-link{
@@ -792,19 +812,30 @@ p.fancy1{
 	left:0;
 	height:100%;
 	width:100%;
-  
     opacity: 0;
 
 }
+.contact-header-img2{
+    position: absolute;
+    background-image: url("../images/contact-map.jpg");
+    background-size: cover;
+    background-position: center;
+    top:0;
+	left:0;
+	height:100%;
+    width:100%;
+    opacity: 1;
+}
 
-.contact-header-outer{
+.contact-header-outer, .lw-header-outer{
     position: relative;
     height:67%;
     background-color:rgb(69, 22, 78);
     margin-left: 100px;
+    margin-bottom: 80px;
 }
 
-.contact-header-center{
+.contact-header-center, .lw-header-center{
     position: absolute;
 	 top:50%;
      left:50%;
@@ -827,7 +858,35 @@ p.fancy1{
 }
 .contact-header-text2{	 
     font-family:'Bungee',serif;
-    font-size:50px;
+    font-size:40px;
 
 }
 
+
+.contact-info-text-1, .contact-info-text-2, .contact-info-text-3, .contact-info-text-4{
+    text-align: center;
+    color: black;
+   
+}
+
+.contact-info-text-1, .contact-info-text-3{
+    font-size: 30px;
+    font-family: 'Lobster',serif;
+    letter-spacing: 1px;
+}
+
+
+
+.contact-info-text-2, .contact-info-text-4{
+    font-size: 15px;
+    font-family: 'Roboto Slab',serif;
+    letter-spacing: 1px;
+}
+
+
+
+@media screen and (min-width: 768px){
+    .conatct-border{
+         border-right:1px solid black; 
+     }
+ }
