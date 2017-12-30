@@ -710,6 +710,27 @@ ul.position-skillset{
     position: relative;
 }
 
+.codes-header-container{
+    position: relative;
+    min-height: 60%;
+    margin-left: 100px;
+    background-color:rgb(69, 22, 78);
+}
+.codes-header-img{
+    position: absolute;
+    background-image: url("../images/1.jpeg");
+    background-size: cover;
+    background-position: center;
+    top:0;
+	left:0;
+	height:100%;
+	width:100%;
+    opacity: 0;
+}
+
+
+
+
 .header-container{
     position: relative;
     background-image: url("../images/1.jpeg");
@@ -843,17 +864,6 @@ p.fancy1{
     opacity: 0;
 
 }
-.contact-header-img2{
-    position: absolute;
-    background-image: url("../images/contact-map.jpg");
-    background-size: cover;
-    background-position: center;
-    top:0;
-	left:0;
-	height:100%;
-    width:100%;
-    opacity: 1;
-}
 
 .contact-header-outer, .lw-header-outer, .rs-header-outer{
     position: relative;
@@ -862,6 +872,8 @@ p.fancy1{
     margin-left: 100px;
     margin-bottom: 80px;
 }
+
+
 
 .contact-header-center, .lw-header-center{
     position: absolute;
