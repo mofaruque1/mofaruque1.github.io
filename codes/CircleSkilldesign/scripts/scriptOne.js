@@ -1,95 +1,81 @@
 
+var startang = 0, endang = 0.2;
+var finalAngles = [1.6, 1.7, 1.4, 1.8, 2.1, 1.5];
+var colors = ["#102e5e", "#a83e15", "#931644", "#1cceb3", "#8615a8", "#25ce12"];
+var lw = 3;
+var radius = 60;
+var intervalId;
 
-var sq2_top = -5;
-var sq2_height = 115;
-var sq2_right = -6;
-var speed = 8;
+function myfunc() {
 
-var skill_value=0;
-var sq1_height = 115;
+  var c = document.getElementsByClassName("myCanvas");
+  var d = document.querySelectorAll("div.container1  p.my-center");
 
-var intervalID;
-
-
-function progress(){
-
-    var i=0;
-    var tp= sq2_top+"px";
-    var hgt = sq2_height+"px";
-    var rgt = sq2_right+"px";
-
-    var skill_v1 = skill_value+7+"%";
-    var skill_v2 = skill_value+10+"%";
-    var skill_v3 = skill_value+16+"%";
-    var skill_v4 = skill_value+22+"%";
-    var skill_v5 = skill_value+34+"%";
-
-    var x = document.getElementsByClassName("sq2");
-
-
-    for(i=0;i<x.length;i++){
-        x[i].style.top=tp;
-        x[i].style.height=hgt;
-        x[i].style.right=rgt;
+  var i;
+  for (i = 0; i < c.length; i++) {
+    if (endang > finalAngles[i]) {
+      var temp1 = finalAngles[i]*47.6;
+      var temp2 = temp1.toFixed(0);
+      d[i].innerHTML = temp2+"%";
+      continue;
     }
-    
 
 
-    document.getElementById("text1").innerHTML = skill_v1;
-    document.getElementById("text2").innerHTML = skill_v2;
-    document.getElementById("text3").innerHTML = skill_v3;
-    document.getElementById("text4").innerHTML = skill_v4;
-    document.getElementById("text5").innerHTML = skill_v5;
-    skill_value +=3;
-    if(sq2_top<63){
-    sq2_top +=speed;
-    sq2_height -=speed;
-    }
-    if(sq2_top>=63 && sq2_right<100){
-        
-        sq2_right +=speed;
-    }
-    if(sq2_right>=50){
-        progress_sq1();
-    }
+    var ctx = c[i].getContext("2d");
+    var x = c[i].width / 2;
+    var y = c[i].height / 2;
+    ctx.clearRect(0, 0, c[i].width, c[i].height);
+    ctx.beginPath();
+    ctx.arc(x, y, radius, startang * Math.PI, endang * Math.PI, false);
+
+    ctx.lineWidth = lw;
+    ctx.strokeStyle = colors[i];
+    ctx.stroke();
+    var v1 = endang*47.6;
+    var percent = v1.toFixed(0);
+    d[i].innerHTML = percent+"%";
+
+  }
+  endang += 0.05;
+  if (endang > 2.2) {
+    clearInterval(intervalId);
+
+  }
 }
 
 
-function progress_sq1(){
-    var i=0,incr=0;
-    var y = document.getElementsByClassName("sq1");
-    for(i =0; i<y.length;i++){
-        y[i].style.height=sq1_height-incr+"px";
-        if(i==3){
-            incr +=30;
-            continue; 
-        }
-        incr +=7;
-    }
+function myfunc1() {
+  var c = document.getElementsByClassName("myCanvas1");
 
+  var i;
+  for (i = 0; i < c.length; i++) {
+    var ctx = c[i].getContext("2d");
+    var x = c[i].width / 2;
+    var y = c[i].height / 2;
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0.001 * Math.PI, 0 * Math.PI, false);
 
-    sq1_height -=speed;
-    if(sq1_height<=45){
-        clearInterval(intervalID);
-    }
+    ctx.lineWidth = lw;
+    ctx.strokeStyle = "#dbdde0";
+    ctx.stroke();
+  }
+
 }
 
 
 
-function myfunctionOne(){
-    progress();
-    date_update();
-    intervalID=setInterval(progress,10);
+
+function start() {
+  myfunc1();
+  dateUpdate();
+  myfunc();
+  intervalId = setInterval(myfunc, 30);
 }
-
-window.onload=myfunctionOne;
-
-function myFunction() {
-    location.reload();
-}
+window.onload = start;
 
 
-function date_update(){
-    var d = new Date();
-    document.getElementById("date").innerHTML = d.getFullYear();
+
+function dateUpdate(){
+  var d = new Date();
+  document.getElementById("date").innerHTML=d.getFullYear();
 }
