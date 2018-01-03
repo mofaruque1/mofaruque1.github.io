@@ -1,6 +1,8 @@
 
 var x = 0;
 $(document).ready(function () {
+    var d = new Date();
+    $("#date").html(d.getFullYear());
     $("p.text").click(function () {
       
         $(".without").toggleClass("hero-image");
