@@ -834,7 +834,7 @@ p.fancy1{
     height: 40px;
     padding: 10px;
     letter-spacing: 1px;
-    font-family: Merriweather;
+    font-family: 'Bree Serif';
     transition: 0.5s ease;
 }
 .thumbnail a:hover .go-link{
