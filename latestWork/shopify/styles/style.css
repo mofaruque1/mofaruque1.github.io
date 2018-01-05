@@ -1,0 +1,140 @@
+
+body,html{
+    font-family: Helvetica, sans-serif;
+    background-color: #000639;
+    color: #FFFFFF;
+    width: 100%;
+    margin: 0;
+ 
+ }
+ 
+ input[ type=email], select{
+     
+     padding: 16px 20px;
+     margin: 20px 0; 
+     box-sizing: border-box;
+     border: 1px solid #ccc;
+     font-size: 16px;
+     display: inline-block;
+     border-radius: 7px;
+     color: #7B7B7B;
+     
+ }
+ 
+ input[ type=email ]{
+     width: 55%;
+ }
+ select {
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     width: 41%;
+ }
+ select::-ms-expand {
+     display: none;
+ }
+ 
+ select.down-arrow {
+     background-image:
+       linear-gradient(45deg, transparent 50%, gray 50%),
+       linear-gradient(135deg, gray 50%, transparent 50%),
+       linear-gradient(to right, #ccc, #ccc);
+     background-position:
+       calc(100% - 20px) calc(1em + 8px),
+       calc(100% - 15px) calc(1em + 8px),
+       calc(100% - 2.5em) 0.9em;
+     background-size:
+       5px 5px,
+       5px 5px,
+       1px 1.5em;
+     background-repeat: no-repeat;
+   }
+ 
+ 
+ input[type=submit]{
+     width: 100%;
+     padding: 16px 20px;
+     background-color: #5c6ac4;
+     color: white;
+     border-radius: 7px; 
+     box-sizing: border-box;
+     margin: 12px 0;
+     border: none;
+     cursor: pointer;
+     font-size: 16px;
+ }
+ 
+ 
+ 
+ div.fancy{
+    margin: 6% 20%;
+ }
+ 
+ .green-line{
+     width: 25px;
+     height: 3px;
+     background-color: #7AB55C;
+     margin-bottom: 40px;
+   
+   }
+ 
+   #warning-xs-sc{
+    color:#C23628;
+    margin-top: -15px;
+}
+ 
+ 
+   .footer{
+     position: fixed;
+     bottom: 0;
+     width: 100%;
+     margin-bottom: 10px;
+ }
+ 
+ 
+ @media screen and (max-width: 1050px){
+     input[ type=email ], select{
+         width:100%;
+     }
+ 
+     div.fancy{
+         margin: 10% 5%;
+     
+      }
+     #warning-md-sc{
+         display: none;
+     }
+  }
+
+
+  @media screen and (min-width: 1050px){
+    #warning-xs-sc{
+        display: none;
+    }
+}
+
+
+  @media screen and (max-height: 568px){
+     input[ type=email ],input[type=submit], select{
+         margin: 5px 0;
+         padding: 8px 14px;
+         font-size: 12px;
+     }
+   
+ 
+     div.fancy{
+        margin: 1% 5%;
+     }
+
+     #warning-xs-sc{
+        margin-top: -3px;
+        font-size: 12px;
+     }
+  }
+
+
+ 
+ 
+ #warning-md-sc{
+    color: #C23628;
+    margin-top: -15px;
+ }
