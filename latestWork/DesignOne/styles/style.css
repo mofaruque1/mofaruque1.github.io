@@ -492,6 +492,7 @@ div.cl14{
     /* background-color: #753a88; */
    padding: 60px 0 30px; 
    border-bottom: 1px solid rgb(75, 87, 102); 
+   overflow: hidden;
 }
 
 
@@ -526,25 +527,41 @@ div.cl16{
 
 div.cl16 p{
     position: relative;
-    text-align: right;
+   
     color: rgb(109, 107, 107);
-    top:-30px;
+    
 }
+@media screen and (min-width:600px){
+    div.cl16 p{
+        top:-30px;
+        text-align: right;
+    }
+}
+
 
 @media screen and (max-width:600px){
     div.cl13{
         text-align: center;
     }
+    .cl15 img{
+        width: 100px;
+    }
 }
 
 @media screen and (max-width:800px){
-    .cl16{
-        display: none;
+    .cl16 img{
+        width: 30px;
+        
+    }
+    .cl16 p{
+        font-size: 8px;
+        top: 20px;
+        text-align: left;
     }
     div.cl14{
+        
+        padding-top: 30px;
         border: none;
-        padding-top: 30px; 
+        font-size: 10px; 
     }
 }
-
-
