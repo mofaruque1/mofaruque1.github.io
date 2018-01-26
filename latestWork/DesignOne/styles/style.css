@@ -1,6 +1,6 @@
 /* Google font */
 
-@import url('https://fonts.googleapis.com/css?family=Lobster|Quicksand|Rubik|Bungee|Bungee Shade|Bungee Inline|Roboto Slab|Patua One|Faster One');
+@import url('https://fonts.googleapis.com/css?family=Lobster|Quicksand|Rubik|Bungee|Bungee Shade|Bungee Inline|Roboto Slab|Patua One|Faster One|Open Sans|Cabin');
 /* Enabling complete space available */
 
 body, html {
@@ -50,7 +50,7 @@ div.topnav a {
     color: white;
     float: left;
     padding: 8px 20px;
-    font-family: Quicksand;
+    font-family: 'Open Sans';
     text-decoration: none;
     text-align: center;
     letter-spacing: 1px;
