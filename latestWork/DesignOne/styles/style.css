@@ -457,7 +457,7 @@ div.cl10 div{
 
 }
 
-@media screen and (min-width:600px){
+@media screen and (min-width:900px){
     div.cl10 div{
         padding: 0 250px 60px;
 
@@ -507,6 +507,7 @@ div.cl14 a{
     display: block;
     font-family:Quicksand;
     letter-spacing: 1px;
+    font-size: 12px;
 }
 
 div.cl15{
@@ -529,7 +530,7 @@ div.cl16{
 
 div.cl16 p{
     position: relative;
-   
+    font-size: 10px;
     color: rgb(109, 107, 107);
     
 }
@@ -562,8 +563,31 @@ div.cl16 p{
     }
     div.cl14{
         
-        padding-top: 30px;
+        padding-top: 50px;
         border: none;
-        font-size: 10px; 
+        
+    }
+    div.cl14 a{
+        font-size: 6px;
+        margin: 0;
+        padding: 0;
+    }
+
+    div.cl15{
+        position: absolute;
+        right:15%;
+        top:15%;
+    }
+    div.cl16{
+        top:30%;
+        height:10%;
+        /* background-color: #753a88; */
+       padding: 60px 0 20px; 
+       
+    }
+
+    div.cl16 img{
+       width: 20px;
+       
     }
 }
