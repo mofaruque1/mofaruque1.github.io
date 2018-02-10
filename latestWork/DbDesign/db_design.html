@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="author" content="Omor Faruque">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Database Design</title>
+  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+
+</head>
+
+<body>
+
+  <div style="position:relative;background-color:rgb(20, 20, 20)" class="h-cl1">
+
+    <div id="myTopnav" class="topnav">
+      <a href="https://mofaruque1.github.io/index.html">HOME</a>
+      <a href="https://mofaruque1.github.io/codes.html">CODES</a>
+      <a href="https://mofaruque1.github.io/latestwork.html">PROJECT</a>
+      <a href="https://mofaruque1.github.io/aboutme.html">ABOUT</a>
+      <a href="https://mofaruque1.github.io/resume.html">RESUME</a>
+      <a href="https://mofaruque1.github.io/contact.html">CONTACT</a>
+
+      <img src="images/icon7.png" width="17" />
+      <img src="images/icon8.png" width="17" />
+      <img src="images/icon6.png" width="17" />
+      <a href="#" class="icon">
+        <span class="glyphicon glyphicon-menu-hamburger"></span>
+      </a>
+    </div>
+    <div class="resName">
+      <img src="images/logo3.PNG" width="150" />
+    </div>
+
+    <div class="topnav2 hidethem">
+      <a href="https://mofaruque1.github.io/index.html">HOME</a>
+      <a href="https://mofaruque1.github.io/codes.html">CODES</a>
+      <a href="https://mofaruque1.github.io/latestwork.html">PROJECT</a>
+      <a href="https://mofaruque1.github.io/aboutme.html">ABOUT</a>
+      <a href="https://mofaruque1.github.io/resume.html">RESUME</a>
+      <a href="https://mofaruque1.github.io/contact.html">CONTACT</a>
+    </div>
+  </div>
+
+
+  <div style="position:relative;height:auto;text-align:center;padding:60px 20px">
+
+    <div class="block">D</div>
+    <div class="block">A</div>
+    <div class="block">T</div>
+    <div class="block">A</div>
+    <div class="block">B</div>
+    <div class="block">A</div>
+    <div class="block">S</div>
+    <div class="block">E</div>
+    <div class="block"> - </div>
+    <div class="block">D</div>
+    <div class="block">E</div>
+    <div class="block">S</div>
+    <div class="block">I</div>
+    <div class="block">G</div>
+    <div class="block">N</div>
+
+  </div>
+
+  <div style="position:relative;height:auto;padding:30px 20px">
+    <h2 class="cl1">E/R DIAGRAM</h2>
+    <img src="images/ER.jpg" class="mrg" />
+    <h2 class="cl1">Description</h2>
+    <p>This is my E/R diagram for Episode Database. The first entity set is Series. It is uniquely identified by its name and
+      creator, since it is possible that two Series were created with the same name but two different creator.
+      <br/>
+      <br/> The next entity sets iare Episode and Character. There is a one to many relationship from Series to Character and
+      Episode. A series can have many episodes as well as many characters. Both Episode and Character are weak entity sets
+      as they are ascociated with given series.
+      <br/>
+      <br/> There is a many-to-many relationship between Episodes and Characters because it is helpful to know which characters
+      were featured in a given episode.
+      <br/>
+      <br/> There is a many to many relationship between Actors and Characters, since an actor can play multiple characters and
+      a character can be played by multiple actors.
+      <br/>
+      <br/> There is a many to many relationship from Actor to Series and Season, since there can be many actors in a series and
+      in a season, and an actor can be in many different series and season.
+      <br/>
+    </p>
+
+    <h2 class="cl1" style="margin-top:7%">SCHEMA</h2>
+    <pre class="cl3">
+  <code>
+      create table Studio (
+        name    VARCHAR(20) NOT NULL,
+        website VARCHAR(20) NOT NULL,
+        address VARCHAR(20) NOT NULL,
+        CONSTRAINT Studio_PK
+            PRIMARY KEY (name,website)
+    );
+    -- ---------------------------------------------------------------------------
+    create table Series (
+        name        VARCHAR(20) NOT NULL,
+        creator     VARCHAR(20) NOT NULL,
+        start_date  DATE        NOT NULL,
+        end_date    DATE,
+        website     VARCHAR(20) NOT NULL,
+        CONSTRAINT Series_PK
+            PRIMARY KEY (name,creator)
+    );
+    -- ---------------------------------------------------------------------------
+    create table Episode (
+        title           VARCHAR(20) NOT NULL,
+        season_no       SMALLINT    NOT NULL,
+        series_name     VARCHAR(20) NOT NULL,
+        series_creator  VARCHAR(20) NOT NULL,
+        air_date        DATE        NOT NULL,
+        URL             VARCHAR(20),
+        description     VARCHAR(80) NOT NULL,
+        quality_rating  SMALLINT CHECK (quality_rating>=0 AND quality_rating<=10),
+        CONSTRAINT Episode_PK
+            PRIMARY KEY (title,season_no,series_name,series_creator),
+        CONSTRAINT Episode_of_series_FK
+            FOREIGN KEY (series_name,series_creator)
+            REFERENCES Series(name,creator)              
+    );
+    -- ---------------------------------------------------------------------------
+    create table Character (
+        name            VARCHAR(20) NOT NULL,
+        series_name     VARCHAR(20) NOT NULL,
+        series_creator  VARCHAR(20) NOT NULL,
+        role            VARCHAR(20) NOT NULL,
+        CONSTRAINT Character_PK
+            PRIMARY KEY (name,series_name,series_creator),
+        CONSTRAINT Character_belongs_series_FK
+            FOREIGN KEY (series_name,series_creator)
+            REFERENCES Series(name,creator)    
+    );
+    
+    -- ---------------------------------------------------------------------------
+    create table Actor (
+        name            VARCHAR(20) NOT NULL,
+        website         VARCHAR(20) NOT NULL,
+        CONSTRAINT Actor_PK
+            PRIMARY KEY (name)
+    );
+    
+    -- ---------------------------------------------------------------------------
+    create table ProducedBy (
+        studio_name        VARCHAR(20) NOT NULL,
+        studio_website     VARCHAR(20) NOT NULL,
+        series_name        VARCHAR(20) NOT NULL,
+        series_creator     VARCHAR(20) NOT NULL,
+        
+        CONSTRAINT ProducedBy_PK
+            PRIMARY KEY (studio_name,studio_website,series_name,series_creator),
+        CONSTRAINT ProducedBy_Studio_FK
+            FOREIGN KEY (studio_name,studio_website)
+            REFERENCES Studio(name,website),
+        CONSTRAINT ProducedBy_Series_FK
+            FOREIGN KEY (series_name,series_creator)
+            REFERENCES Series(name,creator)    
+    );
+    
+    -- ---------------------------------------------------------------------------
+    create table Stars (
+        actor_name        VARCHAR(20) NOT NULL,
+        season_no         SMALLINT    NOT NULL,
+        episode_title     VARCHAR(20) NOT NULL,
+        series_name       VARCHAR(20) NOT NULL,
+        series_creator    VARCHAR(20) NOT NULL,
+        salary            INTEGER     NOT NULL,  
+    
+        CONSTRAINT Stars_PK
+            PRIMARY KEY (actor_name,season_no,episode_title,series_name,series_creator),
+    
+        CONSTRAINT Stars_Actor_FK
+            FOREIGN KEY (actor_name)
+            REFERENCES Actor(name),
+    
+        CONSTRAINT Stars_Episode_FK
+            FOREIGN KEY (episode_title,season_no,series_name,series_creator)
+            REFERENCES Episode(title,season_no,series_name,series_creator),
+    
+    
+        CONSTRAINT Stars_Series_FK
+            FOREIGN KEY (series_name,series_creator)
+            REFERENCES Series(name,creator)    
+    );
+    
+    -- ---------------------------------------------------------------------------
+    create table Portrayal (
+        actor_name        VARCHAR(20) NOT NULL,
+        character_name    VARCHAR(20) NOT NULL,
+        series_name       VARCHAR(20) NOT NULL,
+        series_creator    VARCHAR(20) NOT NULL,
+          
+        CONSTRAINT Portrayal_PK
+            PRIMARY KEY (actor_name,character_name,series_name,series_creator),
+    
+        CONSTRAINT Portrayal_Actor_FK
+            FOREIGN KEY (actor_name)
+            REFERENCES Actor(name),
+    
+        CONSTRAINT Portrayal_Character_FK
+            FOREIGN KEY (character_name,series_name,series_creator)
+            REFERENCES Character(name,series_name,series_creator),
+    
+        CONSTRAINT Portrayal_Series_FK
+            FOREIGN KEY (series_name,series_creator)
+            REFERENCES Series(name,creator)    
+    );
+    
+    -- ---------------------------------------------------------------------------
+    create table features (
+        actor_name        VARCHAR(20) NOT NULL,
+        character_name    VARCHAR(20) NOT NULL,
+        series_name       VARCHAR(20) NOT NULL,
+        series_creator    VARCHAR(20) NOT NULL,
+        episode_title     VARCHAR(20) NOT NULL,
+        season_no         SMALLINT    NOT NULL,
+          
+        CONSTRAINT features_PK
+            PRIMARY KEY (actor_name,character_name,series_name,series_creator,episode_title,season_no),
+    
+        CONSTRAINT feature_Actor_FK
+            FOREIGN KEY (actor_name)
+            REFERENCES Actor(name),
+    
+        CONSTRAINT feature_Character_FK
+            FOREIGN KEY (character_name,series_name,series_creator)
+            REFERENCES Character(name,series_name,series_creator),
+    
+    
+        CONSTRAINT feature_Episode_FK
+            FOREIGN KEY (episode_title,season_no,series_name,series_creator)
+            REFERENCES Episode(title,season_no,series_name,series_creator),
+    
+        CONSTRAINT feature_Series_FK
+            FOREIGN KEY (series_name,series_creator)
+            REFERENCES Series(name,creator),
+    
+        CONSTRAINT feature_Stars_FK
+            FOREIGN KEY (actor_name, season_no, series_name, series_creator, episode_title)
+            REFERENCES Stars(actor_name,season_no, series_name, series_creator, episode_title)
+    );
+  </code>
+</pre>
+
+<h2 class="cl1" style="margin-top:7%">DATA</h2>
+<pre class="cl4">
+    <code>
+        INSERT INTO Studio (name, website, address) VALUES
+        ('Frumpy, Inc',      'FrumpyDumpy.com', 'Toronto, ON'),
+        ('YaYa Productions', 'YaYaPro.ca',      'St Catherines, ON');
+    
+    -- ---------------------------------------------------------------------------
+    INSERT INTO Actor (name, website) VALUES
+        ('Allie Grant',             'aaagrant.tv'),
+        ('Britt Robertson',         'BrittRob.com'),
+        ('Jennifer Lawrence',       'jl.tv'),
+        ('Justin Kirk',             'itsybtsy.ca/3jx82289'),
+        ('John Malkovich',          'malkovich2.com'),
+        ('Josh Hutcherson',         'meenyurl.ca/UUjh2398'),
+        ('Mary-Louise Parker',      'mlparker.org'),
+        ('Mindy Kaling',            'itsybtsy.ca/hh21129s'),
+        ('Richard Ayoade',          'ayoade.com');
+    
+    -- ---------------------------------------------------------------------------
+    INSERT INTO Series (name, creator, start_date, end_date, website) VALUES
+        ('Fronds',              'Danny Krane',  '05/29/2016',   NULL,           'fronds.tv'),
+        ('Fronds',              'Jenni Cohen',  '04/20/2016',   NULL,           'fronds.com'),
+        ('Me, Myself, and I',   'Spike Jonze',  '08/31/2015',   '06/05/2017',   'meeee.me');
+    
+    -- ---------------------------------------------------------------------------
+    INSERT INTO Character (name, series_name, series_creator, role) VALUES
+        ('Cameron', 'Fronds', 'Danny Krane', 'sardonic friend'),
+        ('Moss',    'Fronds', 'Danny Krane', 'geeky friend'),
+        ('Paige',   'Fronds', 'Danny Krane', 'whimsical friend'),
+        ('Veronica','Fronds', 'Danny Krane', 'staid friend'),
+        ('Andi',    'Fronds', 'Jenni Cohen', 'the pusher'),
+        ('Issy',    'Fronds', 'Jenni Cohen', 'the user'),
+        ('Ned',     'Fronds', 'Jenni Cohen', 'the enabler'),
+        ('Shane',   'Fronds', 'Jenni Cohen', 'the outsider'),
+        ('John',    'Me, Myself, and I', 'Spike Jonze', 'the one');
+    
+    -- ---------------------------------------------------------------------------
+    INSERT INTO ProducedBy (studio_name, studio_website, series_name, series_creator) VALUES
+        ('Frumpy, Inc',      'FrumpyDumpy.com', 'Fronds',            'Danny Krane'),
+        ('YaYa Productions', 'YaYaPro.ca',      'Fronds',            'Jenni Cohen'),
+        ('Frumpy, Inc',      'FrumpyDumpy.com', 'Me, Myself, and I', 'Spike Jonze');
+    
+    -- ---------------------------------------------------------------------------
+    INSERT INTO Episode (title, season_no, series_name, series_creator, air_date, URL, description, quality_rating) VALUES
+        ('Hooking up', 1, 'Fronds', 'Danny Krane', '09/09/2016', 'fronds.tv/01/01', 'Botany is never monotony!', 5),
+        ('Yikes, spikes!', 1, 'Fronds', 'Danny Krane', '09/16/2016', 'fronds.tv/01/02', 'Veronica pranks the others with a spiky plant.', 2),
+        ('The Lazy Amazon', 1, 'Fronds', 'Danny Krane', '09/23/2016', 'fronds.tv/01/03', 'Stuck on a raft with no paddles.', 4),
+        ('Tangerine Skies', 2, 'Fronds', 'Danny Krane', '09/08/2017', 'fronds.tv/02/01', 'Paige decides to live in the canopy and will not come down!', 4),   
+        ('Cameron Blues', 2, 'Fronds', 'Danny Krane', '09/15/2017', 'fronds.tv/02/02', 'Cameron starts to self-medicate with new plants he discovers.!', 5), 
+        ('The Lima Weekend', 2, 'Fronds', 'Danny Krane', '09/22/2017', 'fronds.tv/02/03', 'Hijinks ensue when Moss and Paige go to Lima for a weekend away.', 1),
+        ('Prohibition', 1, 'Fronds', 'Jenni Cohen', '09/16/2016', 'fronds.com/Prohib', 'Canada outlaws caffeine and alcohol the same day they legalize weed.', 4),
+        ('Higher and Higher', 1, 'Fronds', 'Jenni Cohen', '09/23/2016', 'fronds.com/Higher', 'The economy stumbles with no one getting up before noon.', 3),
+        ('The Munchies', 1, 'Fronds', 'Jenni Cohen', '09/30/2016', 'fronds.com/Munch', 'The food industry skyrockets.', 5),
+        ('Inhaling', 2, 'Fronds', 'Jenni Cohen', '09/15/2017', 'fronds.com/Inhale', 'Society begins to adjust to the haze, takes it in stride.', 3),
+        ('All good', 2, 'Fronds', 'Jenni Cohen', '09/22/2017', 'fronds.com/Budget', 'Healthcare costs plummet, tax revenues soar.', 5),
+        ('Toke Bespoke', 2, 'Fronds', 'Jenni Cohen', '09/29/2017', 'fronds.com/Toke', 'Andi and Ned get hitched, and the reception lasts for days.', 5),
+        ('Alone', 1, 'Me, Myself, and I', 'Spike Jonze', '10/09/2015', 'meeee.me/Alone', 'John cannot find himself.', 4),
+        ('Together', 1, 'Me, Myself, and I', 'Spike Jonze', '10/16/2015', 'meeee.me/Together', 'John finds more of himself than he could ever imagine!', 5),
+        ('The Solipsist', 2, 'Me, Myself, and I', 'Spike Jonze', '10/07/2016', 'meeee.me/Solipsist', 'John starts his own universe.', 5),
+        ('Tea Time', 2, 'Me, Myself, and I', 'Spike Jonze', '10/07/2016', 'meeee.me/Tea', 'John hosts a tea party and only he shows up.', 1),
+        ('Au Revoir', 2, 'Me, Myself, and I', 'Spike Jonze', '04/28/2017', 'meeee.me/Revior', 'John sees himself off.', 5);
+    
+    -- ---------------------------------------------------------------------------
+    
+    INSERT INTO Portrayal (actor_name, character_name, series_name, series_creator) VALUES
+        ('Allie Grant', 'Veronica', 'Fronds', 'Danny Krane'),
+        ('Britt Robertson', 'Veronica', 'Fronds', 'Danny Krane'),
+        ('Mindy Kaling', 'Paige', 'Fronds', 'Danny Krane'),
+        ('Jennifer Lawrence', 'Veronica', 'Fronds', 'Danny Krane'),
+        ('Josh Hutcherson', 'Cameron', 'Fronds', 'Danny Krane'),
+        ('Richard Ayoade', 'Moss', 'Fronds', 'Danny Krane'),
+        ('Allie Grant', 'Issy', 'Fronds', 'Jenni Cohen'),
+        ('Justin Kirk', 'Ned', 'Fronds', 'Jenni Cohen'),
+        ('Justin Kirk', 'Shane', 'Fronds', 'Jenni Cohen'),
+        ('Mary-Louise Parker', 'Andi', 'Fronds', 'Jenni Cohen'),
+        ('John Malkovich', 'John', 'Me, Myself, and I', 'Spike Jonze');
+    
+    
+        -- ---------------------------------------------------------------------------
+    
+      INSERT INTO Stars (actor_name, season_no, episode_title, series_name, series_creator, salary) VALUES
+            ('Jennifer Lawrence', 1, 'Hooking up', 'Fronds', 'Danny Krane', 250000),
+            ('Jennifer Lawrence', 1, 'Yikes, spikes!', 'Fronds', 'Danny Krane', 250000),
+            ('Jennifer Lawrence', 1, 'The Lazy Amazon', 'Fronds', 'Danny Krane', 250000),
+            ('Josh Hutcherson', 1, 'Hooking up', 'Fronds', 'Danny Krane', 150000),
+            ('Josh Hutcherson', 1, 'Yikes, spikes!', 'Fronds', 'Danny Krane', 150000),
+            ('Josh Hutcherson', 1, 'The Lazy Amazon', 'Fronds', 'Danny Krane', 150000),
+            ('Mindy Kaling', 1, 'Hooking up', 'Fronds', 'Danny Krane', 200000),
+            ('Mindy Kaling', 1, 'Yikes, spikes!', 'Fronds', 'Danny Krane', 200000),
+            ('Mindy Kaling', 1, 'The Lazy Amazon', 'Fronds', 'Danny Krane', 200000),
+            ('Richard Ayoade', 1, 'Hooking up', 'Fronds', 'Danny Krane', 75000),
+            ('Richard Ayoade', 1, 'Yikes, spikes!', 'Fronds', 'Danny Krane', 75000),
+            ('Allie Grant', 2, 'Tangerine Skies', 'Fronds', 'Danny Krane', 175000),
+            ('Britt Robertson', 2, 'Tangerine Skies', 'Fronds', 'Danny Krane', 200000),
+            ('Mindy Kaling', 2, 'Tangerine Skies', 'Fronds', 'Danny Krane', 350000),
+            ('Mindy Kaling', 2, 'The Lima Weekend', 'Fronds', 'Danny Krane', 350000),
+            ('Josh Hutcherson', 2, 'Tangerine Skies', 'Fronds', 'Danny Krane', 150000),
+            ('Josh Hutcherson', 2, 'Cameron Blues', 'Fronds', 'Danny Krane', 150000),
+            ('Richard Ayoade', 2, 'Tangerine Skies', 'Fronds', 'Danny Krane', 225000),
+            ('Richard Ayoade', 2, 'Cameron Blues', 'Fronds', 'Danny Krane', 225000),
+            ('Richard Ayoade', 2, 'The Lima Weekend', 'Fronds', 'Danny Krane', 225000),
+            ('Allie Grant', 1, 'Prohibition', 'Fronds', 'Jenni Cohen', 150000),
+            ('Allie Grant', 1, 'The Munchies', 'Fronds', 'Jenni Cohen', 150000),
+            ('Justin Kirk', 1, 'Prohibition', 'Fronds', 'Jenni Cohen', 275000),
+            ('Justin Kirk', 1, 'Higher and Higher', 'Fronds', 'Jenni Cohen', 275000),
+            ('Justin Kirk', 1, 'The Munchies', 'Fronds', 'Jenni Cohen', 275000),
+            ('Mary-Louise Parker', 1, 'Prohibition', 'Fronds', 'Jenni Cohen', 275000),
+            ('Mary-Louise Parker', 1, 'Higher and Higher', 'Fronds', 'Jenni Cohen', 275000),
+            ('Mary-Louise Parker', 1, 'The Munchies', 'Fronds', 'Jenni Cohen', 275000),
+            ('Allie Grant', 2, 'Inhaling', 'Fronds', 'Jenni Cohen', 100000),
+            ('Allie Grant', 2, 'All good', 'Fronds', 'Jenni Cohen', 100000),
+            ('Allie Grant', 2, 'Toke Bespoke', 'Fronds', 'Jenni Cohen', 100000),
+            ('Justin Kirk', 2, 'Inhaling', 'Fronds', 'Jenni Cohen', 325000),
+            ('Justin Kirk', 2, 'All good', 'Fronds', 'Jenni Cohen', 325000),
+            ('Justin Kirk', 2, 'Toke Bespoke', 'Fronds', 'Jenni Cohen', 325000),
+            ('Mary-Louise Parker', 2, 'All good', 'Fronds', 'Jenni Cohen', 325000),
+            ('Mary-Louise Parker', 2, 'Toke Bespoke', 'Fronds', 'Jenni Cohen', 325000),
+            ('John Malkovich', 1, 'Alone', 'Me, Myself, and I', 'Spike Jonze', 99999),
+            ('John Malkovich', 1, 'Together', 'Me, Myself, and I', 'Spike Jonze', 99999),
+            ('John Malkovich', 2, 'The Solipsist', 'Me, Myself, and I', 'Spike Jonze', 249999),
+            ('John Malkovich', 2, 'Tea Time', 'Me, Myself, and I', 'Spike Jonze', 249999),
+            ('John Malkovich', 2, 'Au Revoir', 'Me, Myself, and I', 'Spike Jonze', 249999);
+    
+    -- ---------------------------------------------------------------------------
+    INSERT INTO features (actor_name, character_name, series_name, series_creator, episode_title, season_no) VALUES
+        ('Jennifer Lawrence', 'Veronica', 'Fronds', 'Danny Krane', 'Hooking up', 1),
+        ('Josh Hutcherson', 'Cameron', 'Fronds', 'Danny Krane', 'Hooking up', 1),
+        ('Mindy Kaling', 'Paige', 'Fronds', 'Danny Krane', 'Hooking up', 1),
+        ('Richard Ayoade', 'Moss', 'Fronds', 'Danny Krane', 'Hooking up', 1),
+        ('Jennifer Lawrence', 'Veronica', 'Fronds', 'Danny Krane', 'Yikes, spikes!', 1),
+        ('Josh Hutcherson', 'Cameron', 'Fronds', 'Danny Krane', 'Yikes, spikes!', 1),
+        ('Mindy Kaling', 'Paige', 'Fronds', 'Danny Krane', 'Yikes, spikes!', 1),
+        ('Richard Ayoade', 'Moss', 'Fronds', 'Danny Krane', 'Yikes, spikes!', 1),
+        ('Jennifer Lawrence', 'Veronica', 'Fronds', 'Danny Krane', 'The Lazy Amazon', 1),
+        ('Josh Hutcherson', 'Cameron', 'Fronds', 'Danny Krane', 'The Lazy Amazon', 1),
+        ('Mindy Kaling', 'Paige', 'Fronds', 'Danny Krane', 'The Lazy Amazon', 1),
+        ('Allie Grant', 'Veronica', 'Fronds', 'Danny Krane', 'Tangerine Skies', 2),
+        ('Britt Robertson', 'Veronica', 'Fronds', 'Danny Krane', 'Tangerine Skies', 2),
+        ('Josh Hutcherson', 'Cameron', 'Fronds', 'Danny Krane', 'Tangerine Skies', 2),
+        ('Mindy Kaling', 'Paige', 'Fronds', 'Danny Krane', 'Tangerine Skies', 2),
+        ('Richard Ayoade', 'Moss', 'Fronds', 'Danny Krane', 'Tangerine Skies', 2),
+        ('Josh Hutcherson', 'Cameron', 'Fronds', 'Danny Krane', 'Cameron Blues', 2),
+        ('Richard Ayoade', 'Moss', 'Fronds', 'Danny Krane', 'Cameron Blues', 2),
+        ('Mindy Kaling', 'Paige', 'Fronds', 'Danny Krane', 'The Lima Weekend', 2),
+        ('Richard Ayoade', 'Moss', 'Fronds', 'Danny Krane', 'The Lima Weekend', 2),
+        ('Allie Grant', 'Issy', 'Fronds', 'Jenni Cohen', 'Prohibition', 1),
+        ('Justin Kirk', 'Ned', 'Fronds', 'Jenni Cohen', 'Prohibition', 1),
+        ('Mary-Louise Parker', 'Andi', 'Fronds', 'Jenni Cohen', 'Prohibition', 1),
+        ('Justin Kirk', 'Shane', 'Fronds', 'Jenni Cohen', 'Higher and Higher', 1),
+        ('Mary-Louise Parker', 'Andi', 'Fronds', 'Jenni Cohen', 'Higher and Higher', 1),
+        ('Allie Grant', 'Issy', 'Fronds', 'Jenni Cohen', 'The Munchies', 1),
+        ('Justin Kirk', 'Ned', 'Fronds', 'Jenni Cohen', 'The Munchies', 1),
+        ('Mary-Louise Parker', 'Andi', 'Fronds', 'Jenni Cohen', 'The Munchies', 1),
+        ('Allie Grant', 'Issy', 'Fronds', 'Jenni Cohen', 'Inhaling', 2),
+        ('Justin Kirk', 'Shane', 'Fronds', 'Jenni Cohen', 'Inhaling', 2),
+        ('Allie Grant', 'Issy', 'Fronds', 'Jenni Cohen', 'All good', 2),
+        ('Justin Kirk', 'Ned', 'Fronds', 'Jenni Cohen', 'All good', 2),
+        ('Justin Kirk', 'Shane', 'Fronds', 'Jenni Cohen', 'All good', 2),
+        ('Mary-Louise Parker', 'Andi', 'Fronds', 'Jenni Cohen', 'All good', 2),
+        ('Allie Grant', 'Issy', 'Fronds', 'Jenni Cohen', 'Toke Bespoke', 2),
+        ('Justin Kirk', 'Ned', 'Fronds', 'Jenni Cohen', 'Toke Bespoke', 2),
+        ('Mary-Louise Parker', 'Andi', 'Fronds', 'Jenni Cohen', 'Toke Bespoke', 2),
+        ('John Malkovich', 'John', 'Me, Myself, and I', 'Spike Jonze', 'Alone', 1),
+        ('John Malkovich', 'John', 'Me, Myself, and I', 'Spike Jonze', 'Together', 1),
+        ('John Malkovich', 'John', 'Me, Myself, and I', 'Spike Jonze', 'The Solipsist', 2),
+        ('John Malkovich', 'John', 'Me, Myself, and I', 'Spike Jonze', 'Tea Time', 2),
+        ('John Malkovich', 'John', 'Me, Myself, and I', 'Spike Jonze', 'Au Revoir', 2);
+    
+    </code>
+  </pre>
+
+  </div>
+
+
+
+  <div style="position:relative;height:auto;padding:70px 20px;">
+    <h2 style="text-align:center" class="cl1">Databse used IBM:Db2</h2>
+
+  </div>
+
+
+
+
+
+  <footer>
+
+
+    <div style="background-color:black">
+
+      <div style="font-size:12px;color:rgb(161, 157, 157);padding:40px 0 0">&copy; 2018
+        <a href="https://mofaruque1.github.io/" target="_blank">OMOR FARUQUE</a>
+      </div>
+      <div style="padding:20px 0 50px;font-size:12px;">TERMS &amp; PRIVACY POLICY | CONTACT NOW</div>
+    </div>
+  </footer>
+
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+  <script src="scripts/myscript.js"></script>
+</body>
+
+</html>
