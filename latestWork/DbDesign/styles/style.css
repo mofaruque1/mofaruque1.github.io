@@ -53,6 +53,7 @@ img.change {
     height: 100%;
     object-fit: cover;
     position: absolute;
+	
 }
 
 #left-arrow, #right-arrow {
@@ -163,6 +164,7 @@ a.activePage {
 
 .h-cl1{
     height: 10%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 
@@ -201,6 +203,7 @@ div.block{
     margin: 10px 2px;
     background-color: #b93742;
     color: white;
+	border-radius: 5px;
 }
 h2.cl1{
     font-family: 'Bungee Inline';
