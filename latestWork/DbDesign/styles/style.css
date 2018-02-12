@@ -108,6 +108,10 @@ div.topnav img {
     margin-right: 4px;
 }
 
+div.topnav a:hover{
+    color: rgb(216, 135, 15);
+}
+
 .header-div1 {
     position: absolute;
     top: 55%;
