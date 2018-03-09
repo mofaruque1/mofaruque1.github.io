@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Omor Faruque">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web components Design</title>
+    <link rel="stylesheet" href="styles/style.css" />
+    
+</head>
+
+<body>
+
+    <div style="position:relative;background-color:rgb(20, 20, 20)" class="h-cl1">
+
+        <div id="myTopnav" class="topnav">
+            <a href="https://mofaruque1.github.io/index.html">HOME</a>
+            <a href="https://mofaruque1.github.io/codes.html">CODES</a>
+            <a href="https://mofaruque1.github.io/latestwork.html">PROJECT</a>
+            <a href="https://mofaruque1.github.io/aboutme.html">ABOUT</a>
+            <a href="https://mofaruque1.github.io/resume.html">RESUME</a>
+            <a href="https://mofaruque1.github.io/contact.html">CONTACT</a>
+
+            <img src="images/icon7.png" width="17" />
+            <img src="images/icon8.png" width="17" />
+            <img src="images/icon6.png" width="17" />
+            <a href="#" class="icon">
+                <span class="glyphicon glyphicon-menu-hamburger"></span>
+            </a>
+        </div>
+        <div class="resName">
+            <img src="images/logo3.png" width="150" />
+        </div>
+
+        <div class="topnav2 hidethem">
+            <a href="https://mofaruque1.github.io/index.html">HOME</a>
+            <a href="https://mofaruque1.github.io/codes.html">CODES</a>
+            <a href="https://mofaruque1.github.io/latestwork.html">PROJECT</a>
+            <a href="https://mofaruque1.github.io/aboutme.html">ABOUT</a>
+            <a href="https://mofaruque1.github.io/resume.html">RESUME</a>
+            <a href="https://mofaruque1.github.io/contact.html">CONTACT</a>
+        </div>
+    </div>
+
+
+
+    <div style="position:relative;height:auto;text-align:center;padding:60px 20px">
+
+        <h1 style="font-family:'Bungee Inline';color:#555960">Web Component Design</h1>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <div class="conatiner">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-lg-4" style="margin-bottom:40px">
+                <my-panel></my-panel>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-lg-4" id="testcol" style="margin-bottom:40px">
+                <my-panel img='images/samsang8.png'></my-panel>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-lg-4" style="margin-bottom:40px">
+                <my-panel></my-panel>
+            </div>
+        </div>
+        
+        <div class="row" style="margin-top:50px;">
+                <div class="col-xs-12" style="margin-bottom:40px;text-align:center">
+                    <img src="images/code.JPG" class="img-thumbnail" alt="code" />
+                </div>
+            </div>
+            <div class="row">
+                    <div class="col-xs-12" style="margin-bottom:40px;text-align:center">
+                            <h1 style="font-family:'Bungee Inline';color:#555960">Code</h1>
+                    </div>
+            </div>
+    </div>
+
+
+
+
+
+    <footer>
+        <div style="background-color:black;margin-top:100px">
+
+            <div style="font-size:12px;color:rgb(161, 157, 157);padding:40px 0 0">&copy; 2018
+                <a href="https://mofaruque1.github.io/" target="_blank">OMOR FARUQUE</a>
+            </div>
+            <div style="padding:20px 0 50px;font-size:12px;">TERMS &amp; PRIVACY POLICY | CONTACT NOW</div>
+        </div>
+    </footer>
+
+
+
+    <!-- THE WEB COMPONENT -->
+    <template>
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Lobster|Bungee|Bungee Inline|Roboto Slab|Patua One|Faster One|Bree Serif|Open Sans');
+
+            #outer-container {
+                width: 100%;
+                min-width: 380px;
+                /* border-top-right-radius: 6px;
+    border-top-left-radius: 6px; */
+                border-radius: 12px;
+                height: auto;
+                overflow: hidden;
+                border: 2px solid rgb(208, 214, 224);
+            }
+
+            .div-1,
+            .div-2,
+            .div-3,
+            .div-4,
+            .div-5,
+            .div-6 {
+                width: 100%;
+                position: relative;
+                font-family: 'Patua One';
+                font-size: 16px;
+                letter-spacing: 1px;
+            }
+
+            .div-1 {
+                height: 40px;
+                min-height: 40px;
+                background-color: rgb(255, 191, 63);
+            }
+
+            .div-1-1,
+            .div-1-2,
+            .div-1-3,
+            .div-1-4 {
+                position: absolute;
+                top: 50%;
+                transform: translate(5%, -50%);
+            }
+
+            .div-1-1 {
+                left: 5%;
+                font-size: 16px;
+            }
+
+            .div-1-2 {
+                left: 52%;
+                font-size: 16px;
+            }
+
+            .div-1-3 {
+                right: 5%;
+            }
+
+            .div-1-4 {
+                width: 1px;
+                height: 100%;
+                background-color: white;
+                left: 50%;
+            }
+
+            .div-2 {
+                height: 70px;
+                min-height: 40px;
+                background-color: rgb(240, 242, 245);
+            }
+
+            .div-2-1,
+            .div-2-2 {
+                position: absolute;
+                bottom: 10%;
+            }
+
+            .div-2-1 {
+                left: 5%;
+            }
+
+            .div-2-2 {
+                left: 13%;
+                font-size: 16px;
+            }
+
+            .div-3 {
+                height: 350px;
+                min-height: 300px;
+            }
+
+            .div-3-1,
+            .div-3-2,
+            .div-3-3,
+            .div-3-4,
+            .div-3-5,
+            .div-3-6,
+            .div-3-7 {
+                position: absolute;
+            }
+
+            .div-3-1 img {
+                display: block;
+            }
+
+            .div-3-1 a {
+                margin-left: 40px;
+                color: red;
+                font-family: 'Roboto Slab';
+                font-weight: bold;
+            }
+
+            .div-3-1 {
+                top: 30px;
+                width: 49%;
+            }
+
+            .div-3-2,
+            .div-3-3 {
+                left: 50%;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+            }
+
+            .div-3-2 {
+                top: 30px;
+                background-color: grey;
+            }
+
+            .div-3-3 {
+                top: 80px;
+                background-color: rgb(116, 78, 226);
+                border: 2px solid red;
+            }
+
+            .div-3-4 {
+                top: 100px;
+                /* the space on the both side of plus sign is important */
+                left: -webkit-calc(50% + 20px);
+                left: -moz-calc(50% + 20px);
+                left: calc(50% + 20px);
+            }
+
+            .div-3-5 {
+                top: 80px;
+                /* left: calc(50% + 70px); */
+                left: 65%;
+                color: red;
+                width: 25%;
+
+            }
+
+            .div-3-5 p {
+                text-align: center;
+                border: 2px solid red;
+                padding: 7px 1px;
+                border-radius: 10px;
+            }
+
+            .div-3-6 {
+                top: 100px;
+                /* left: calc(50% + 180px);
+    color: red;  */
+                right: 10%;
+            }
+
+            .div-3-7 {
+                top: 140px;
+                left: 50%;
+                width: 40%;
+
+            }
+
+            .div-3-7 p {
+                text-align: center;
+                font-size: 18px;
+                color: white;
+                padding: 8px 1px;
+                background-color: red;
+                border-radius: 10px;
+                /* min-width: 212px;  */
+            }
+
+
+            .div-4 {
+                height: 130px;
+                min-height: 130px;
+            }
+
+            .div-4-1 {
+                width: 80%;
+                height: 2px;
+                background-color: rgb(208, 214, 224);
+                margin-top: 55px;
+                margin-left: 10%;
+            }
+
+            .div-4-3 {
+                color: red;
+                display: inline-block;
+                top: 16px;
+                left: 10%;
+                font-family: 'Roboto Slab';
+                font-size: 24px;
+                position: absolute;
+            }
+
+            .div-4-4 {
+                position: absolute;
+                color: black;
+                font-family: 'Roboto Slab';
+                font-size: 16px;
+                vertical-align: middle;
+                top: 16px;
+                left: 40%;
+                width: 55%;
+
+            }
+
+            .div-4-5 {
+                position: absolute;
+                top: 80px;
+                left: 0;
+                right: 0;
+                text-align: center;
+            }
+
+            .div-4-5 a {
+                color: red;
+            }
+        </style>
+
+        <div id="outer-container">
+            <div class="div-1">
+                <div class="div-1-1">limited time offer</div>
+                <div class="div-1-2">View all offers</div>
+                <div class="div-1-3">
+                    <img src="images/arrowRight.png" width="25" />
+                </div>
+                <div class="div-1-4"></div>
+            </div>
+
+
+            <div class="div-2">
+                <div class="div-2-1">
+                    <img src="images/ic1.png" />
+                </div>
+                <div class="div-2-2">Samsang Galaxy S9</div>
+            </div>
+
+
+            <div class="div-3">
+                <div class="div-3-1">
+                    <img src="images/samsang.png" width="200" />
+                    <a href="#">Learn more ></a>
+                </div>
+
+                <div class="div-3-2"></div>
+                <div class="div-3-3"></div>
+                <div class="div-3-4">
+                    <img src="images/phone_selected.png" width="25" />
+                </div>
+                <div class="div-3-5">
+                    <p>64GB</p>
+                </div>
+
+                <div class="div-3-6">
+                    <img src="images/phone_selected.png" width="25" />
+                </div>
+                <div class="div-3-7">
+                    <p>Pre-Order</p>
+                </div>
+            </div>
+
+            <div class="div-4">
+                <div class="div-4-1"></div>
+                <div class="div-4-3">$249
+                    <sup>.00</sup>
+                </div>
+                <div class="div-4-4">On a 2-year Premium+ Tab plan</div>
+
+
+                <div class="div-4-5">Upgrading or adding a line? &nbsp; &nbsp;
+                    <a href="#">Login ></a>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script src="webcomponents.min.js"></script>
+    <script>
+
+        // Create a prototype for a new element that extends HTMLElement
+        var Panel = Object.create(HTMLElement.prototype);
+
+        // Grab our template full of slider markup and styles
+        var tmpl = document.querySelector('template');
+
+        // Setup our Shadow DOM and clone the template
+        Panel.createdCallback = function () {
+            var root = this.createShadowRoot();
+           
+            root.appendChild(document.importNode(tmpl.content, true));
+            // console.log(Panel.hasAttribute('image'));
+        };
+
+        // Register our new element
+        var MyPanel = document.registerElement('my-panel', { prototype: Panel });
+
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="scripts/myscript.js"></script>
+</body>
+
+</html>
