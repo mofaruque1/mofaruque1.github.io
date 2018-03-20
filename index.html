@@ -3,7 +3,7 @@
 
 <head>
         <title> My portfolio </title>
-		<link rel="shortcut icon" href="images/fevi.png" type="image/png">
+        <link rel="shortcut icon" href="images/fevi.png" type="image/png">
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="style/styles.css">
 </head>
@@ -17,7 +17,7 @@
                         </a>
                 </div>
 
-                <div class="menu-box">
+                <div class="menu-box  shwcase1">
                         <a href="index.html">
                                 <img src="images/home.png" width="30" style="display:block;margin:0 Auto" />
                                 <p class="menu-p active-page">HOME</p>
@@ -26,34 +26,34 @@
 
 
 
-                <div class="menu-box">
+                <div class="menu-box shwcase2">
                         <a href="latestwork.html">
                                 <img src="images/portfolio.png" width="30" style="display:block;margin:0 Auto" />
                                 <p class="menu-p">PROJECTS</p>
                         </a>
                 </div>
 
-                <div class="menu-box">
+                <div class="menu-box shwcase3">
                         <a href="codes.html">
                                 <img src="images/code.png" width="30" style="display:block;margin:0 Auto" />
                                 <p class="menu-p">MISC</p>
                         </a>
                 </div>
 
-                <div class="menu-box">
+                <div class="menu-box shwcase4">
                         <a href="aboutme.html">
                                 <img src="images/about.png" width="30" style="display:block;margin:0 Auto" />
                                 <p class="menu-p">ABOUT</p>
                         </a>
                 </div>
-                <div class="menu-box">
+                <div class="menu-box shwcase5">
                         <a href="resume.html">
                                 <img src="images/resume.png" width="30" style="display:block;margin:0 Auto" />
                                 <p class="menu-p">RESUME</p>
                         </a>
                 </div>
 
-                <div class="menu-box">
+                <div class="menu-box shwcase6">
                         <a href="contact.html">
                                 <img src="images/contact.png" width="30" style="display:block;margin:0 Auto" />
                                 <p class="menu-p">CONTACT</p>
@@ -97,16 +97,67 @@
                         </div>
 
                         <div style="position:relative; top:-20px; left:-20px;">
-                                <h1 class="fancy">I am Omor Faruque</h1>
-                                <div class="name_style"> And I am a &lt;developer/&gt;</div>
-                                <a href="contact.html" class="text" style="margin-left: 37%; padding: 8px 20px">Contact Me</a>
+                                <h1 class="fancy shwcase7">I am Omor Faruque</h1>
+                                <div class="name_style shwcase8"> And I am a &lt;developer/&gt;</div>
+                                <a href="contact.html" class="text shwcase9" style="margin-left: 37%; padding: 8px 20px">Contact Me</a>
                         </div>
                 </div>
         </div>
 
 
         </div>
+        <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+        <script>
+                window.sr = ScrollReveal();
 
+                sr.reveal('.shwcase1', {
+                        duration: 1000,
+                        origin: 'right',
+                        distance:'100px'
+                });
+
+                 sr.reveal('.shwcase2', {
+                        duration: 1000,
+                        origin: 'left',
+                        distance:'100px'
+                });
+                sr.reveal('.shwcase3', {
+                        duration: 1000,
+                        origin: 'right',
+                        distance:'100px'
+                });
+                sr.reveal('.shwcase4', {
+                        duration: 1000,
+                        origin: 'left',
+                        distance:'100px'
+                });
+                sr.reveal('.shwcase5', {
+                        duration: 1000,
+                        origin: 'right',
+                        distance:'100px'
+                });
+                sr.reveal('.shwcase6', {
+                        duration: 1000,
+                        origin: 'left',
+                        distance:'100px'
+                });
+                sr.reveal('.shwcase7', {
+                        duration: 2000,
+                        origin: 'left',
+                        distance:'200px'
+                });
+                sr.reveal('.shwcase8', {
+                        duration: 2000,
+                        origin: 'right',
+                        distance:'200px'
+                });
+                sr.reveal('.shwcase9', {
+                        delay:1500,
+                        duration: 2000,
+                        origin: 'bottom',
+                        distance:'200px'
+                });
+        </script>
 </body>
 
 </html>
