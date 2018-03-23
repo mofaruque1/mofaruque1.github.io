@@ -5,15 +5,15 @@ sr.reveal('.navbar',{
     origin:'bottom'
 });
 
-sr.reveal('#showcase .showcase-left',{
+sr.reveal('.showcase-left',{
     duration:2000,
     origin:'top',
-    distance:'200px'
+    distance:'300px'
 });
 
-sr.reveal('#showcase .showcase-right',{
+sr.reveal('.showcase-right',{
     duration:2000,
-    distance:'200px',
+    distance:'300px',
     origin:'right'
 });
 
@@ -49,7 +49,7 @@ sr.reveal('.contact-showcase', {
     distance:'250px',
     delay:1000,
     origin:'left',
-    viewFactor: 0.3
+    viewFactor: 0.2
 });
 
 
@@ -59,7 +59,7 @@ sr.reveal('.img-responsive', {
     distance:'100px',
     delay:500,
     origin:'right',
-    viewFactor: 0.3
+    viewFactor: 0.2
 });
 
 $(function() {
